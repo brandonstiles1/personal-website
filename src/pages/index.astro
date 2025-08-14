@@ -2,15 +2,925 @@
 
 ---
 
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/personal-website/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta name="description" content="Brandon Stiles - Software Engineer & Product Demo Specialist with 6 years of experience building scalable systems and presenting technical solutions." />
+		<title>Brandon Stiles - Software Engineer & Product Demo Specialist</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<!-- Navigation -->
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="nav-logo">
+					<span class="logo-text">Brandon Stiles</span>
+				</div>
+				<ul class="nav-menu">
+					<li><a href="#about" class="nav-link">About</a></li>
+					<li><a href="#experience" class="nav-link">Experience</a></li>
+					<li><a href="#beyond" class="nav-link">Beyond Code</a></li>
+					<li><a href="#showcase" class="nav-link">Showcase</a></li>
+					<li><a href="#tech" class="nav-link">Tech Stack</a></li>
+					<li><a href="#contact" class="nav-link">Contact</a></li>
+				</ul>
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-container">
+				<div class="hero-content">
+					<h1 class="hero-title">
+						Software Engineer & 
+						<span class="highlight">Product Demo Specialist</span>
+					</h1>
+					<p class="hero-subtitle">
+						Former songwriter-turned-engineer with 6 years building scalable backend systems 
+						and over a decade of entrepreneurial experience in high-trust sales.
+					</p>
+					<p class="hero-description">
+						I bridge technical expertise with business impact — whether it's coding, 
+						demoing, or building alignment between teams.
+					</p>
+					<div class="hero-links">
+						<a href="https://www.linkedin.com/in/brandon-stiles-dev/" target="_blank" class="social-link">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a href="https://github.com/brandonstiles1" target="_blank" class="social-link">
+							<i class="fab fa-github"></i>
+						</a>
+						<a href="mailto:brandonstiles@gmail.com" class="social-link">
+							<i class="fas fa-envelope"></i>
+						</a>
+					</div>
+					<div class="hero-cta">
+						<a href="#contact" class="btn-primary">Let's Connect</a>
+						<a href="#experience" class="btn-secondary">View My Work</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section id="about" class="about">
+			<div class="container">
+				<h2 class="section-title">About Me</h2>
+				<div class="about-content">
+					<div class="about-text">
+						<p>
+							I'm a software engineer who thrives at the intersection of technology and communication. 
+							With 6 years of experience building scalable backend systems at healthtech and fintech startups, 
+							I've led engineering initiatives that launched high-impact features used by millions.
+						</p>
+						<p>
+							What sets me apart is my ability to present live demos to stakeholders, translate complex 
+							technical concepts for cross-functional teams, and drive alignment that accelerates product adoption. 
+							Now, I'm exploring roles that blend technical expertise with business impact — like Sales Engineering.
+						</p>
+						<p>
+							Whether it's architecting systems, presenting to leadership, or mentoring engineers — 
+							I bring clarity, curiosity, and a proven track record of getting things done.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Experience Section -->
+		<section id="experience" class="experience">
+			<div class="container">
+				<h2 class="section-title">Recent Work</h2>
+				<div class="timeline">
+					<div class="timeline-item">
+						<div class="timeline-marker"></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<h3>Senior Software Engineer</h3>
+								<span class="company">Talkiatry</span>
+								<span class="period">Jan 2025 – Present</span>
+							</div>
+							<ul class="timeline-achievements">
+								<li>Architected passwordless authentication system using AWS Cognito, Lambda, and Postgres, reducing failures by <strong>90%</strong> and improving appointment attendance by <strong>35%</strong></li>
+								<li>Delivered product demos to engineering, product, and leadership orgs to align stakeholders and accelerate adoption</li>
+								<li>Collaborated across frontend, backend, and DevOps to launch features <strong>3+ weeks ahead of schedule</strong></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-marker"></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<h3>Software Engineer III</h3>
+								<span class="company">FloQast</span>
+								<span class="period">Jan 2024 – Jan 2025</span>
+							</div>
+							<ul class="timeline-achievements">
+								<li>Embedded with Sales "Velocity" team for 2 quarters, supporting live technical demos and helping close <strong>mid-market deals</strong></li>
+								<li>Presented MongoDB schema designs to both technical and client-facing teams to improve product understanding</li>
+								<li>Built the "All Results Drill Down" compliance dashboard using React, Node.js, and MongoDB</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-marker"></div>
+						<div class="timeline-content">
+							<div class="timeline-header">
+								<h3>Tech Lead & Software Engineer</h3>
+								<span class="company">Greenlight</span>
+								<span class="period">Jul 2020 – Jan 2024</span>
+							</div>
+							<ul class="timeline-achievements">
+								<li>Built and maintained backend services for Greenlight's first Credit Card product — including cashback, auto-invest, and notifications</li>
+								<li>Led the Partner Enablement onboarding flow used by B2B clients, integrating multiple microservices</li>
+								<li>Mentored engineers and collaborated across marketing, design, and product teams to drive outcomes</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Beyond Code Section -->
+		<section id="beyond" class="beyond">
+			<div class="container">
+				<h2 class="section-title">Beyond the Code</h2>
+				<div class="beyond-grid">
+					<div class="beyond-card">
+						<div class="beyond-icon">
+							<i class="fas fa-guitar"></i>
+						</div>
+						<h3>Wedding Entertainment Business</h3>
+						<span class="beyond-period">Founder, 2015–2020</span>
+						<p>
+							Built and scaled a 6-figure business booking wedding bands and DJs across the Southeast. 
+							Closed <strong>100%</strong> of inbound/outbound sales and became the top-selling consultant 
+							for a 500-wedding/year vendor.
+						</p>
+					</div>
+
+					<div class="beyond-card">
+						<div class="beyond-icon">
+							<i class="fab fa-youtube"></i>
+						</div>
+						<h3>YouTube Creator</h3>
+						<span class="beyond-period">2017–Present</span>
+						<p>
+							Created <strong>130+</strong> videos on marketing and software, growing to 
+							<strong>3,700+</strong> subscribers. Focused on product walkthroughs, 
+							affiliate demos, and clear technical education.
+						</p>
+					</div>
+
+					<div class="beyond-card">
+						<div class="beyond-icon">
+							<i class="fas fa-microphone"></i>
+						</div>
+						<h3>Product Evangelism & Teaching</h3>
+						<span class="beyond-period">Ongoing</span>
+						<p>
+							Known for simplifying complex systems, demoing features clearly, 
+							and helping teams align faster. Bridge technical and business stakeholders 
+							through effective communication.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Showcase Section -->
+		<section id="showcase" class="showcase">
+			<div class="container">
+				<h2 class="section-title">Video Showcase</h2>
+				<p class="section-subtitle">Technical walkthroughs, product demos, and educational content</p>
+				
+				<div class="video-grid">
+					<div class="video-card">
+						<div class="video-placeholder">
+							<i class="fab fa-youtube"></i>
+							<p>YouTube Video 1</p>
+							<span>Product Demo Walkthrough</span>
+						</div>
+					</div>
+					<div class="video-card">
+						<div class="video-placeholder">
+							<i class="fab fa-youtube"></i>
+							<p>YouTube Video 2</p>
+							<span>Technical Tutorial</span>
+						</div>
+					</div>
+					<div class="video-card">
+						<div class="video-placeholder">
+							<i class="fab fa-youtube"></i>
+							<p>YouTube Video 3</p>
+							<span>Marketing Insights</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="slideshow-section">
+					<h3>Project Slideshows</h3>
+					<div class="slideshow-grid">
+						<div class="slideshow-card">
+							<div class="slideshow-placeholder">
+								<i class="fas fa-presentation-screen"></i>
+								<p>Architecture Presentation</p>
+								<span>System Design Overview</span>
+							</div>
+						</div>
+						<div class="slideshow-card">
+							<div class="slideshow-placeholder">
+								<i class="fas fa-presentation-screen"></i>
+								<p>Product Roadmap</p>
+								<span>Feature Planning & Strategy</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Tech Stack Section -->
+		<section id="tech" class="tech">
+			<div class="container">
+				<h2 class="section-title">Tech Stack</h2>
+				
+				<div class="tech-categories">
+					<div class="tech-category">
+						<h3>Languages & Frameworks</h3>
+						<div class="tech-tags">
+							<span class="tech-tag">Node.js</span>
+							<span class="tech-tag">TypeScript</span>
+							<span class="tech-tag">JavaScript</span>
+							<span class="tech-tag">React</span>
+							<span class="tech-tag">GraphQL</span>
+							<span class="tech-tag">REST APIs</span>
+							<span class="tech-tag">gRPC</span>
+						</div>
+					</div>
+
+					<div class="tech-category">
+						<h3>Platforms & Tools</h3>
+						<div class="tech-tags">
+							<span class="tech-tag">AWS Cognito</span>
+							<span class="tech-tag">Lambda</span>
+							<span class="tech-tag">SQS</span>
+							<span class="tech-tag">S3</span>
+							<span class="tech-tag">DynamoDB</span>
+							<span class="tech-tag">Postgres</span>
+							<span class="tech-tag">MongoDB</span>
+							<span class="tech-tag">Docker</span>
+							<span class="tech-tag">Kubernetes</span>
+							<span class="tech-tag">GitHub Actions</span>
+						</div>
+					</div>
+
+					<div class="tech-category">
+						<h3>Dev & Product Enablement</h3>
+						<div class="tech-tags">
+							<span class="tech-tag">Segment</span>
+							<span class="tech-tag">Datadog</span>
+							<span class="tech-tag">Stripe</span>
+							<span class="tech-tag">Loom</span>
+							<span class="tech-tag">Zoom</span>
+							<span class="tech-tag">Salesforce</span>
+							<span class="tech-tag">HubSpot</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="contact">
+			<div class="container">
+				<div class="contact-content">
+					<h2 class="section-title">Let's Connect</h2>
+					<p class="contact-subtitle">
+						Want to talk Sales Engineering, product strategy, or something creative?
+					</p>
+					
+					<div class="contact-methods">
+						<a href="mailto:brandonstiles@gmail.com" class="contact-method">
+							<i class="fas fa-envelope"></i>
+							<span>brandonstiles@gmail.com</span>
+						</a>
+						<a href="https://www.linkedin.com/in/brandon-stiles-dev/" target="_blank" class="contact-method">
+							<i class="fab fa-linkedin"></i>
+							<span>LinkedIn Profile</span>
+						</a>
+						<a href="https://github.com/brandonstiles1" target="_blank" class="contact-method">
+							<i class="fab fa-github"></i>
+							<span>GitHub Profile</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2025 Brandon Stiles. Built with Astro.</p>
+			</div>
+		</footer>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Inter', sans-serif;
+				line-height: 1.6;
+				color: #333;
+				scroll-behavior: smooth;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			/* Navigation */
+			.navbar {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				background: rgba(255, 255, 255, 0.95);
+				backdrop-filter: blur(10px);
+				border-bottom: 1px solid #e5e7eb;
+				z-index: 1000;
+			}
+
+			.nav-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				height: 70px;
+			}
+
+			.logo-text {
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: #1f2937;
+			}
+
+			.nav-menu {
+				display: flex;
+				list-style: none;
+				gap: 2rem;
+			}
+
+			.nav-link {
+				text-decoration: none;
+				color: #6b7280;
+				font-weight: 500;
+				transition: color 0.3s ease;
+			}
+
+			.nav-link:hover {
+				color: #3b82f6;
+			}
+
+			.hamburger {
+				display: none;
+				flex-direction: column;
+				cursor: pointer;
+			}
+
+			.hamburger span {
+				width: 25px;
+				height: 3px;
+				background: #333;
+				margin: 3px 0;
+				transition: 0.3s;
+			}
+
+			/* Hero Section */
+			.hero {
+				padding: 120px 0 80px;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				text-align: center;
+			}
+
+			.hero-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			.hero-title {
+				font-size: 3.5rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+				line-height: 1.2;
+			}
+
+			.highlight {
+				background: linear-gradient(45deg, #fbbf24, #f59e0b);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			.hero-subtitle {
+				font-size: 1.25rem;
+				margin-bottom: 1rem;
+				opacity: 0.9;
+			}
+
+			.hero-description {
+				font-size: 1.1rem;
+				margin-bottom: 2rem;
+				opacity: 0.8;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.hero-links {
+				display: flex;
+				justify-content: center;
+				gap: 1rem;
+				margin-bottom: 2rem;
+			}
+
+			.social-link {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 50px;
+				height: 50px;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 50%;
+				color: white;
+				text-decoration: none;
+				font-size: 1.2rem;
+				transition: all 0.3s ease;
+			}
+
+			.social-link:hover {
+				background: rgba(255, 255, 255, 0.2);
+				transform: translateY(-2px);
+			}
+
+			.hero-cta {
+				display: flex;
+				justify-content: center;
+				gap: 1rem;
+				flex-wrap: wrap;
+			}
+
+			.btn-primary, .btn-secondary {
+				padding: 12px 24px;
+				border-radius: 8px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				display: inline-block;
+			}
+
+			.btn-primary {
+				background: #fbbf24;
+				color: #1f2937;
+			}
+
+			.btn-primary:hover {
+				background: #f59e0b;
+				transform: translateY(-2px);
+			}
+
+			.btn-secondary {
+				background: rgba(255, 255, 255, 0.1);
+				color: white;
+				border: 2px solid rgba(255, 255, 255, 0.3);
+			}
+
+			.btn-secondary:hover {
+				background: rgba(255, 255, 255, 0.2);
+			}
+
+			/* Section Styles */
+			.section-title {
+				font-size: 2.5rem;
+				font-weight: 700;
+				text-align: center;
+				margin-bottom: 3rem;
+				color: #1f2937;
+			}
+
+			.section-subtitle {
+				text-align: center;
+				font-size: 1.1rem;
+				color: #6b7280;
+				margin-bottom: 3rem;
+			}
+
+			/* About Section */
+			.about {
+				padding: 80px 0;
+				background: #f9fafb;
+			}
+
+			.about-text {
+				max-width: 800px;
+				margin: 0 auto;
+				font-size: 1.1rem;
+				line-height: 1.8;
+			}
+
+			.about-text p {
+				margin-bottom: 1.5rem;
+			}
+
+			/* Experience Section */
+			.experience {
+				padding: 80px 0;
+			}
+
+			.timeline {
+				max-width: 800px;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 30px;
+				top: 0;
+				bottom: 0;
+				width: 2px;
+				background: #e5e7eb;
+			}
+
+			.timeline-item {
+				position: relative;
+				margin-bottom: 3rem;
+				padding-left: 80px;
+			}
+
+			.timeline-marker {
+				position: absolute;
+				left: 21px;
+				top: 8px;
+				width: 18px;
+				height: 18px;
+				background: #3b82f6;
+				border-radius: 50%;
+				border: 4px solid white;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+			}
+
+			.timeline-header {
+				margin-bottom: 1rem;
+			}
+
+			.timeline-header h3 {
+				font-size: 1.3rem;
+				font-weight: 600;
+				color: #1f2937;
+				margin-bottom: 0.25rem;
+			}
+
+			.company {
+				font-size: 1.1rem;
+				color: #3b82f6;
+				font-weight: 600;
+				margin-right: 1rem;
+			}
+
+			.period {
+				color: #6b7280;
+				font-size: 0.9rem;
+			}
+
+			.timeline-achievements {
+				list-style: none;
+				padding: 0;
+			}
+
+			.timeline-achievements li {
+				margin-bottom: 0.75rem;
+				padding-left: 1.5rem;
+				position: relative;
+				color: #4b5563;
+			}
+
+			.timeline-achievements li::before {
+				content: '→';
+				position: absolute;
+				left: 0;
+				color: #3b82f6;
+				font-weight: bold;
+			}
+
+			/* Beyond Code Section */
+			.beyond {
+				padding: 80px 0;
+				background: #f9fafb;
+			}
+
+			.beyond-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.beyond-card {
+				background: white;
+				padding: 2rem;
+				border-radius: 12px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+				text-align: center;
+				transition: transform 0.3s ease;
+			}
+
+			.beyond-card:hover {
+				transform: translateY(-4px);
+			}
+
+			.beyond-icon {
+				font-size: 2.5rem;
+				color: #3b82f6;
+				margin-bottom: 1rem;
+			}
+
+			.beyond-card h3 {
+				font-size: 1.3rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+				color: #1f2937;
+			}
+
+			.beyond-period {
+				color: #6b7280;
+				font-size: 0.9rem;
+				display: block;
+				margin-bottom: 1rem;
+			}
+
+			/* Showcase Section */
+			.showcase {
+				padding: 80px 0;
+			}
+
+			.video-grid, .slideshow-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-bottom: 3rem;
+			}
+
+			.video-card, .slideshow-card {
+				background: #f9fafb;
+				border-radius: 12px;
+				overflow: hidden;
+				transition: transform 0.3s ease;
+			}
+
+			.video-card:hover, .slideshow-card:hover {
+				transform: translateY(-4px);
+			}
+
+			.video-placeholder, .slideshow-placeholder {
+				padding: 3rem 2rem;
+				text-align: center;
+				color: #6b7280;
+			}
+
+			.video-placeholder i, .slideshow-placeholder i {
+				font-size: 3rem;
+				color: #3b82f6;
+				margin-bottom: 1rem;
+				display: block;
+			}
+
+			.slideshow-section h3 {
+				font-size: 1.8rem;
+				font-weight: 600;
+				text-align: center;
+				margin-bottom: 2rem;
+				color: #1f2937;
+			}
+
+			/* Tech Stack Section */
+			.tech {
+				padding: 80px 0;
+				background: #f9fafb;
+			}
+
+			.tech-categories {
+				display: grid;
+				gap: 3rem;
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.tech-category h3 {
+				font-size: 1.3rem;
+				font-weight: 600;
+				margin-bottom: 1rem;
+				color: #1f2937;
+			}
+
+			.tech-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+			}
+
+			.tech-tag {
+				background: white;
+				padding: 0.5rem 1rem;
+				border-radius: 20px;
+				font-size: 0.9rem;
+				color: #4b5563;
+				border: 1px solid #e5e7eb;
+				transition: all 0.3s ease;
+			}
+
+			.tech-tag:hover {
+				background: #3b82f6;
+				color: white;
+				transform: translateY(-2px);
+			}
+
+			/* Contact Section */
+			.contact {
+				padding: 80px 0;
+				background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+				color: white;
+				text-align: center;
+			}
+
+			.contact .section-title {
+				color: white;
+			}
+
+			.contact-subtitle {
+				font-size: 1.1rem;
+				margin-bottom: 3rem;
+				opacity: 0.8;
+			}
+
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				flex-wrap: wrap;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				padding: 1rem 1.5rem;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 8px;
+				color: white;
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+
+			.contact-method:hover {
+				background: rgba(255, 255, 255, 0.2);
+				transform: translateY(-2px);
+			}
+
+			.contact-method i {
+				font-size: 1.2rem;
+			}
+
+			/* Footer */
+			.footer {
+				padding: 2rem 0;
+				background: #1f2937;
+				color: #9ca3af;
+				text-align: center;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.nav-menu {
+					display: none;
+				}
+
+				.hamburger {
+					display: flex;
+				}
+
+				.hero-title {
+					font-size: 2.5rem;
+				}
+
+				.section-title {
+					font-size: 2rem;
+				}
+
+				.timeline {
+					padding-left: 0;
+				}
+
+				.timeline::before {
+					left: 15px;
+				}
+
+				.timeline-item {
+					padding-left: 50px;
+				}
+
+				.timeline-marker {
+					left: 6px;
+				}
+
+				.contact-methods {
+					flex-direction: column;
+					align-items: center;
+				}
+
+				.hero-cta {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.hero-title {
+					font-size: 2rem;
+				}
+
+				.container {
+					padding: 0 15px;
+				}
+
+				.beyond-grid, .video-grid, .slideshow-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+
+		<script>
+			// Mobile menu functionality
+			const hamburger = document.querySelector('.hamburger');
+			const navMenu = document.querySelector('.nav-menu');
+
+			hamburger.addEventListener('click', () => {
+				hamburger.classList.toggle('active');
+				navMenu.classList.toggle('active');
+			});
+
+			// Close mobile menu when clicking on a link
+			document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+				hamburger.classList.remove('active');
+				navMenu.classList.remove('active');
+			}));
+
+			// Smooth scrolling for anchor links
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					const target = document.querySelector(this.getAttribute('href'));
+					if (target) {
+						target.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					}
+				});
+			});
+
+			// Add navbar background on scroll
+			window.addEventListener('scroll', () => {
+				const navbar = document.querySelector('.navbar');
+				if (window.scrollY > 50) {
+					navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+				} else {
+					navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+				}
+			});
+		</script>
 	</body>
 </html>
