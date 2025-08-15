@@ -1,5 +1,28 @@
 ---
-
+// Configuration Variables
+const config = {
+  // Hero Image
+  heroImage: "/personal-website/Brandon.jpg", // Your headshot in /public folder
+  
+  // YouTube Videos (replace with your actual video IDs)
+  youtubeVideos: [
+    {
+      id: "dQw4w9WgXcQ", // Replace with your video ID
+      title: "Product Demo Walkthrough",
+      description: "Technical presentation showcasing system architecture"
+    },
+    {
+      id: "dQw4w9WgXcQ", // Replace with your video ID  
+      title: "Marketing Strategy Tutorial",
+      description: "Business development and growth tactics"
+    },
+    {
+      id: "dQw4w9WgXcQ", // Replace with your video ID
+      title: "Sales Engineering Insights", 
+      description: "Technical sales and customer success"
+    }
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -11,7 +34,7 @@
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Brandon Stiles - Software Engineer & Product Demo Specialist with 6 years of experience building scalable systems and presenting technical solutions." />
 		<title>Brandon Stiles - Software Engineer & Product Demo Specialist</title>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	</head>
 	<body>
@@ -40,33 +63,38 @@
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="hero-container">
-				<div class="hero-content">
-					<h1 class="hero-title">
-						Software Engineer & 
-						<span class="highlight">Product Demo Specialist</span>
-					</h1>
-					<p class="hero-subtitle">
-						Former songwriter-turned-engineer with 6 years building scalable backend systems 
-						and over a decade of entrepreneurial experience in high-trust sales.
-					</p>
-					<p class="hero-description">
-						I bridge technical expertise with business impact — whether it's coding, 
-						demoing, or building alignment between teams.
-					</p>
-					<div class="hero-links">
-						<a href="https://www.linkedin.com/in/brandon-stiles-dev/" target="_blank" class="social-link">
-							<i class="fab fa-linkedin"></i>
-						</a>
-						<a href="https://github.com/brandonstiles1" target="_blank" class="social-link">
-							<i class="fab fa-github"></i>
-						</a>
-						<a href="mailto:brandonstiles@gmail.com" class="social-link">
-							<i class="fas fa-envelope"></i>
-						</a>
+				<div class="hero-split">
+					<div class="hero-image">
+						<img src={config.heroImage} alt="Brandon Stiles - Professional Headshot" class="hero-photo" />
 					</div>
-					<div class="hero-cta">
-						<a href="#contact" class="btn-primary">Let's Connect</a>
-						<a href="#experience" class="btn-secondary">View My Work</a>
+					<div class="hero-content">
+						<h1 class="hero-title">
+							Software Engineer & 
+							<span class="highlight">Product Demo Specialist</span>
+						</h1>
+						<p class="hero-subtitle">
+							Former songwriter-turned-engineer with 6 years building scalable backend systems 
+							and over a decade of entrepreneurial experience in high-trust sales.
+						</p>
+						<p class="hero-description">
+							I bridge technical expertise with business impact — whether it's coding, 
+							demoing, or building alignment between teams.
+						</p>
+						<div class="hero-links">
+							<a href="https://www.linkedin.com/in/brandon-stiles-dev/" target="_blank" class="social-link">
+								<i class="fab fa-linkedin"></i>
+							</a>
+							<a href="https://github.com/brandonstiles1" target="_blank" class="social-link">
+								<i class="fab fa-github"></i>
+							</a>
+							<a href="mailto:brandonstiles@gmail.com" class="social-link">
+								<i class="fas fa-envelope"></i>
+							</a>
+						</div>
+						<div class="hero-cta">
+							<a href="#contact" class="btn-primary">Let's Connect</a>
+							<a href="#experience" class="btn-secondary">View My Work</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -207,27 +235,23 @@
 				<p class="section-subtitle">Technical walkthroughs, product demos, and educational content</p>
 				
 				<div class="video-grid">
-					<div class="video-card">
-						<div class="video-placeholder">
-							<i class="fab fa-youtube"></i>
-							<p>YouTube Video 1</p>
-							<span>Product Demo Walkthrough</span>
+					{config.youtubeVideos.map((video) => (
+						<div class="video-card">
+							<div class="video-embed">
+								<iframe 
+									src={`https://www.youtube.com/embed/${video.id}`}
+									title={video.title}
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen>
+								</iframe>
+							</div>
+							<div class="video-info">
+								<h4>{video.title}</h4>
+								<p>{video.description}</p>
+							</div>
 						</div>
-					</div>
-					<div class="video-card">
-						<div class="video-placeholder">
-							<i class="fab fa-youtube"></i>
-							<p>YouTube Video 2</p>
-							<span>Technical Tutorial</span>
-						</div>
-					</div>
-					<div class="video-card">
-						<div class="video-placeholder">
-							<i class="fab fa-youtube"></i>
-							<p>YouTube Video 3</p>
-							<span>Marketing Insights</span>
-						</div>
-					</div>
+					))}
 				</div>
 
 				<div class="slideshow-section">
@@ -338,6 +362,28 @@
 		</footer>
 
 		<style>
+			:root {
+				/* Magnetic Calm Color Palette */
+				--primary: #1C1F26;      /* Deep Charcoal Blue */
+				--secondary: #D2A679;    /* Dusty Clay */
+				--accent-1: #6C7A89;     /* Cool Steel Gray */
+				--accent-2: #A3B18A;     /* Soft Sage Green */
+				--cta: #D45D52;          /* Warm Terracotta Red */
+				
+				/* Derived colors for better contrast */
+				--text-primary: #1C1F26;
+				--text-secondary: #6C7A89;
+				--text-light: #ffffff;
+				--bg-light: #f8f9fa;
+				--bg-dark: #1C1F26;
+				--surface: #ffffff;
+				--surface-light: #f5f6f8;
+				
+				/* Fonts */
+				--font-heading: 'Outfit', sans-serif;
+				--font-body: 'Inter', sans-serif;
+			}
+
 			* {
 				margin: 0;
 				padding: 0;
@@ -345,9 +391,9 @@
 			}
 
 			body {
-				font-family: 'Inter', sans-serif;
+				font-family: var(--font-body);
 				line-height: 1.6;
-				color: #333;
+				color: var(--text-primary);
 				scroll-behavior: smooth;
 			}
 
@@ -364,7 +410,7 @@
 				width: 100%;
 				background: rgba(255, 255, 255, 0.95);
 				backdrop-filter: blur(10px);
-				border-bottom: 1px solid #e5e7eb;
+				border-bottom: 1px solid var(--accent-1);
 				z-index: 1000;
 			}
 
@@ -379,9 +425,10 @@
 			}
 
 			.logo-text {
+				font-family: var(--font-heading);
 				font-size: 1.5rem;
 				font-weight: 700;
-				color: #1f2937;
+				color: var(--primary);
 			}
 
 			.nav-menu {
@@ -392,13 +439,13 @@
 
 			.nav-link {
 				text-decoration: none;
-				color: #6b7280;
+				color: var(--text-secondary);
 				font-weight: 500;
 				transition: color 0.3s ease;
 			}
 
 			.nav-link:hover {
-				color: #3b82f6;
+				color: var(--cta);
 			}
 
 			.hamburger {
@@ -410,7 +457,7 @@
 			.hamburger span {
 				width: 25px;
 				height: 3px;
-				background: #333;
+				background: var(--primary);
 				margin: 3px 0;
 				transition: 0.3s;
 			}
@@ -418,18 +465,54 @@
 			/* Hero Section */
 			.hero {
 				padding: 120px 0 80px;
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				color: white;
-				text-align: center;
+				background: linear-gradient(135deg, var(--primary) 0%, var(--accent-1) 100%);
+				color: var(--text-light);
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
 			}
 
 			.hero-container {
 				max-width: 1200px;
 				margin: 0 auto;
 				padding: 0 20px;
+				width: 100%;
+			}
+
+			.hero-split {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+				align-items: center;
+				min-height: 600px;
+			}
+
+			.hero-image {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.hero-photo {
+				width: 400px;
+				height: 400px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 4px solid var(--secondary);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+				transition: transform 0.3s ease;
+			}
+
+			.hero-photo:hover {
+				transform: scale(1.05);
+			}
+
+			.hero-content {
+				text-align: left;
 			}
 
 			.hero-title {
+				font-family: var(--font-heading);
 				font-size: 3.5rem;
 				font-weight: 700;
 				margin-bottom: 1rem;
@@ -437,7 +520,7 @@
 			}
 
 			.highlight {
-				background: linear-gradient(45deg, #fbbf24, #f59e0b);
+				background: linear-gradient(45deg, var(--secondary), var(--accent-2));
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
 				background-clip: text;
@@ -460,7 +543,7 @@
 
 			.hero-links {
 				display: flex;
-				justify-content: center;
+				justify-content: flex-start;
 				gap: 1rem;
 				margin-bottom: 2rem;
 			}
@@ -486,7 +569,7 @@
 
 			.hero-cta {
 				display: flex;
-				justify-content: center;
+				justify-content: flex-start;
 				gap: 1rem;
 				flex-wrap: wrap;
 			}
@@ -501,45 +584,53 @@
 			}
 
 			.btn-primary {
-				background: #fbbf24;
-				color: #1f2937;
+				background: var(--cta);
+				color: var(--text-light);
+				font-family: var(--font-heading);
+				font-weight: 600;
 			}
 
 			.btn-primary:hover {
-				background: #f59e0b;
+				background: #c44942;
 				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(212, 93, 82, 0.3);
 			}
 
 			.btn-secondary {
-				background: rgba(255, 255, 255, 0.1);
-				color: white;
-				border: 2px solid rgba(255, 255, 255, 0.3);
+				background: transparent;
+				color: var(--text-light);
+				border: 2px solid var(--secondary);
+				font-family: var(--font-heading);
+				font-weight: 600;
 			}
 
 			.btn-secondary:hover {
-				background: rgba(255, 255, 255, 0.2);
+				background: var(--secondary);
+				color: var(--primary);
+				transform: translateY(-2px);
 			}
 
 			/* Section Styles */
 			.section-title {
+				font-family: var(--font-heading);
 				font-size: 2.5rem;
 				font-weight: 700;
 				text-align: center;
 				margin-bottom: 3rem;
-				color: #1f2937;
+				color: var(--primary);
 			}
 
 			.section-subtitle {
 				text-align: center;
 				font-size: 1.1rem;
-				color: #6b7280;
+				color: var(--text-secondary);
 				margin-bottom: 3rem;
 			}
 
 			/* About Section */
 			.about {
 				padding: 80px 0;
-				background: #f9fafb;
+				background: var(--surface-light);
 			}
 
 			.about-text {
@@ -571,7 +662,7 @@
 				top: 0;
 				bottom: 0;
 				width: 2px;
-				background: #e5e7eb;
+				background: var(--accent-1);
 			}
 
 			.timeline-item {
@@ -586,9 +677,9 @@
 				top: 8px;
 				width: 18px;
 				height: 18px;
-				background: #3b82f6;
+				background: var(--cta);
 				border-radius: 50%;
-				border: 4px solid white;
+				border: 4px solid var(--surface);
 				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 			}
 
@@ -597,21 +688,22 @@
 			}
 
 			.timeline-header h3 {
+				font-family: var(--font-heading);
 				font-size: 1.3rem;
 				font-weight: 600;
-				color: #1f2937;
+				color: var(--primary);
 				margin-bottom: 0.25rem;
 			}
 
 			.company {
 				font-size: 1.1rem;
-				color: #3b82f6;
+				color: var(--cta);
 				font-weight: 600;
 				margin-right: 1rem;
 			}
 
 			.period {
-				color: #6b7280;
+				color: var(--text-secondary);
 				font-size: 0.9rem;
 			}
 
@@ -624,21 +716,21 @@
 				margin-bottom: 0.75rem;
 				padding-left: 1.5rem;
 				position: relative;
-				color: #4b5563;
+				color: var(--text-secondary);
 			}
 
 			.timeline-achievements li::before {
 				content: '→';
 				position: absolute;
 				left: 0;
-				color: #3b82f6;
+				color: var(--accent-2);
 				font-weight: bold;
 			}
 
 			/* Beyond Code Section */
 			.beyond {
 				padding: 80px 0;
-				background: #f9fafb;
+				background: var(--surface-light);
 			}
 
 			.beyond-grid {
@@ -650,33 +742,37 @@
 			}
 
 			.beyond-card {
-				background: white;
+				background: var(--surface);
 				padding: 2rem;
 				border-radius: 12px;
 				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 				text-align: center;
-				transition: transform 0.3s ease;
+				transition: all 0.3s ease;
+				border: 1px solid rgba(163, 177, 138, 0.2);
 			}
 
 			.beyond-card:hover {
 				transform: translateY(-4px);
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+				border-color: var(--accent-2);
 			}
 
 			.beyond-icon {
 				font-size: 2.5rem;
-				color: #3b82f6;
+				color: var(--cta);
 				margin-bottom: 1rem;
 			}
 
 			.beyond-card h3 {
+				font-family: var(--font-heading);
 				font-size: 1.3rem;
 				font-weight: 600;
 				margin-bottom: 0.5rem;
-				color: #1f2937;
+				color: var(--primary);
 			}
 
 			.beyond-period {
-				color: #6b7280;
+				color: var(--text-secondary);
 				font-size: 0.9rem;
 				display: block;
 				margin-bottom: 1rem;
@@ -695,41 +791,79 @@
 			}
 
 			.video-card, .slideshow-card {
-				background: #f9fafb;
+				background: var(--surface);
 				border-radius: 12px;
 				overflow: hidden;
-				transition: transform 0.3s ease;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+				border: 1px solid rgba(163, 177, 138, 0.2);
 			}
 
 			.video-card:hover, .slideshow-card:hover {
 				transform: translateY(-4px);
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+				border-color: var(--accent-2);
 			}
 
-			.video-placeholder, .slideshow-placeholder {
+			.video-embed {
+				position: relative;
+				padding-bottom: 56.25%; /* 16:9 aspect ratio */
+				height: 0;
+				overflow: hidden;
+			}
+
+			.video-embed iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border: none;
+			}
+
+			.video-info {
+				padding: 1.5rem;
+			}
+
+			.video-info h4 {
+				font-family: var(--font-heading);
+				font-size: 1.1rem;
+				font-weight: 600;
+				color: var(--primary);
+				margin-bottom: 0.5rem;
+			}
+
+			.video-info p {
+				color: var(--text-secondary);
+				font-size: 0.9rem;
+			}
+
+			.slideshow-placeholder {
 				padding: 3rem 2rem;
 				text-align: center;
-				color: #6b7280;
+				color: var(--text-secondary);
 			}
 
-			.video-placeholder i, .slideshow-placeholder i {
+			.slideshow-placeholder i {
 				font-size: 3rem;
-				color: #3b82f6;
+				color: var(--cta);
 				margin-bottom: 1rem;
 				display: block;
 			}
 
 			.slideshow-section h3 {
+				font-family: var(--font-heading);
 				font-size: 1.8rem;
 				font-weight: 600;
 				text-align: center;
 				margin-bottom: 2rem;
-				color: #1f2937;
+				color: var(--primary);
 			}
 
 			/* Tech Stack Section */
 			.tech {
 				padding: 80px 0;
-				background: #f9fafb;
+				background: var(--surface-light);
 			}
 
 			.tech-categories {
@@ -740,10 +874,11 @@
 			}
 
 			.tech-category h3 {
+				font-family: var(--font-heading);
 				font-size: 1.3rem;
 				font-weight: 600;
 				margin-bottom: 1rem;
-				color: #1f2937;
+				color: var(--primary);
 			}
 
 			.tech-tags {
@@ -753,31 +888,33 @@
 			}
 
 			.tech-tag {
-				background: white;
+				background: var(--surface);
 				padding: 0.5rem 1rem;
 				border-radius: 20px;
 				font-size: 0.9rem;
-				color: #4b5563;
-				border: 1px solid #e5e7eb;
+				color: var(--text-secondary);
+				border: 1px solid var(--accent-1);
 				transition: all 0.3s ease;
+				font-weight: 500;
 			}
 
 			.tech-tag:hover {
-				background: #3b82f6;
-				color: white;
+				background: var(--accent-2);
+				color: var(--text-light);
 				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(163, 177, 138, 0.3);
 			}
 
 			/* Contact Section */
 			.contact {
 				padding: 80px 0;
-				background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-				color: white;
+				background: linear-gradient(135deg, var(--primary) 0%, var(--accent-1) 100%);
+				color: var(--text-light);
 				text-align: center;
 			}
 
 			.contact .section-title {
-				color: white;
+				color: var(--text-light);
 			}
 
 			.contact-subtitle {
@@ -798,16 +935,20 @@
 				align-items: center;
 				gap: 0.75rem;
 				padding: 1rem 1.5rem;
-				background: rgba(255, 255, 255, 0.1);
+				background: rgba(210, 166, 121, 0.2);
+				border: 1px solid var(--secondary);
 				border-radius: 8px;
-				color: white;
+				color: var(--text-light);
 				text-decoration: none;
 				transition: all 0.3s ease;
+				font-weight: 500;
 			}
 
 			.contact-method:hover {
-				background: rgba(255, 255, 255, 0.2);
+				background: var(--secondary);
+				color: var(--primary);
 				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(210, 166, 121, 0.3);
 			}
 
 			.contact-method i {
@@ -817,8 +958,8 @@
 			/* Footer */
 			.footer {
 				padding: 2rem 0;
-				background: #1f2937;
-				color: #9ca3af;
+				background: var(--primary);
+				color: var(--text-secondary);
 				text-align: center;
 			}
 
@@ -830,6 +971,35 @@
 
 				.hamburger {
 					display: flex;
+				}
+
+				.hero {
+					min-height: auto;
+					padding: 100px 0 60px;
+				}
+
+				.hero-split {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+					text-align: center;
+					min-height: auto;
+				}
+
+				.hero-content {
+					text-align: center;
+				}
+
+				.hero-links {
+					justify-content: center;
+				}
+
+				.hero-cta {
+					justify-content: center;
+				}
+
+				.hero-photo {
+					width: 280px;
+					height: 280px;
 				}
 
 				.hero-title {
@@ -857,11 +1027,6 @@
 				}
 
 				.contact-methods {
-					flex-direction: column;
-					align-items: center;
-				}
-
-				.hero-cta {
 					flex-direction: column;
 					align-items: center;
 				}

@@ -1,10 +1,6 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-import github from "@astrojs/github";
+import { defineConfig } from 'astro/config'
 
-
-// https://astro.build/config
 export default defineConfig({
-    integrations: [github()],
-    site: 'https://brandonstiles1.github.io/personal-website/'
-});
+    site: 'https://brandonstiles.com',
+    base: '/',
+})
