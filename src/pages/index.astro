@@ -21,6 +21,16 @@ const config = {
       title: "Sales Engineering Insights", 
       description: "Technical sales and customer success"
     }
+  ],
+
+  // PDF Slideshows (add PDF files to /public folder)
+  pdfSlideshows: [
+    {
+      filename: "redis_presentation.pdf",
+      title: "Redis: The Key to Delivering Value",
+      description: "Technical deep-dive into scalable backend design",
+      thumbnail: "redis_presentation.png" // Optional thumbnail image
+    },
   ]
 };
 ---
@@ -257,20 +267,30 @@ const config = {
 				<div class="slideshow-section">
 					<h3>Project Slideshows</h3>
 					<div class="slideshow-grid">
-						<div class="slideshow-card">
-							<div class="slideshow-placeholder">
-								<i class="fas fa-presentation-screen"></i>
-								<p>Architecture Presentation</p>
-								<span>System Design Overview</span>
+						{config.pdfSlideshows.map((slideshow) => (
+							<div class="slideshow-card">
+								<div class="slideshow-preview">
+									{slideshow.thumbnail ? (
+										<img src={slideshow.thumbnail} alt={slideshow.title} class="slideshow-thumbnail" />
+									) : (
+										<div class="slideshow-placeholder">
+											<i class="fas fa-file-pdf"></i>
+											<span>PDF Presentation</span>
+										</div>
+									)}
+									<div class="slideshow-overlay">
+										<a href={slideshow.filename} target="_blank" class="slideshow-view-btn">
+											<i class="fas fa-external-link-alt"></i>
+											View Slideshow
+										</a>
+									</div>
+								</div>
+								<div class="slideshow-info">
+									<h4>{slideshow.title}</h4>
+									<p>{slideshow.description}</p>
+								</div>
 							</div>
-						</div>
-						<div class="slideshow-card">
-							<div class="slideshow-placeholder">
-								<i class="fas fa-presentation-screen"></i>
-								<p>Product Roadmap</p>
-								<span>Feature Planning & Strategy</span>
-							</div>
-						</div>
+						))}
 					</div>
 				</div>
 			</div>
@@ -838,17 +858,99 @@ const config = {
 				font-size: 0.9rem;
 			}
 
+			.slideshow-preview {
+				position: relative;
+				height: 200px;
+				overflow: hidden;
+				border-radius: 12px 12px 0 0;
+			}
+
+			.slideshow-thumbnail {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+			}
+
 			.slideshow-placeholder {
-				padding: 3rem 2rem;
-				text-align: center;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background: var(--surface-light);
 				color: var(--text-secondary);
 			}
 
 			.slideshow-placeholder i {
 				font-size: 3rem;
 				color: var(--cta);
-				margin-bottom: 1rem;
-				display: block;
+				margin-bottom: 0.5rem;
+			}
+
+			.slideshow-placeholder span {
+				font-size: 0.9rem;
+				font-weight: 500;
+			}
+
+			.slideshow-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(28, 31, 38, 0.8);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.slideshow-card:hover .slideshow-overlay {
+				opacity: 1;
+			}
+
+			.slideshow-card:hover .slideshow-thumbnail {
+				transform: scale(1.1);
+			}
+
+			.slideshow-view-btn {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.75rem 1.5rem;
+				background: var(--cta);
+				color: var(--text-light);
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				font-size: 0.9rem;
+			}
+
+			.slideshow-view-btn:hover {
+				background: #c44942;
+				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(212, 93, 82, 0.3);
+			}
+
+			.slideshow-info {
+				padding: 1.5rem;
+			}
+
+			.slideshow-info h4 {
+				font-family: var(--font-heading);
+				font-size: 1.1rem;
+				font-weight: 600;
+				color: var(--primary);
+				margin-bottom: 0.5rem;
+			}
+
+			.slideshow-info p {
+				color: var(--text-secondary);
+				font-size: 0.9rem;
 			}
 
 			.slideshow-section h3 {
