@@ -4,9 +4,17 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build and Deploy
     steps:
       - uses: actions/checkout@v3
-      - uses: withastro/action@v1
+      - uses: withastro/action@v2
+        with:
+          path: . # Path to your Astro project (usually root)
