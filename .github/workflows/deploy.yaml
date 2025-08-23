@@ -19,15 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: withastro/action@v2
-        with:
-          path: .
-          node-version: 20
-          package-manager: npm
-          # withastro/action runs install + build and outputs to ./dist
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
+      - name: Install, build, and upload site
+        uses: withastro/action@v4
+        # Optional inputs:
+        # with:
+        #   path: .
+        #   node-version: 22
+        #   package-manager: npm
 
   deploy:
     needs: build
@@ -36,5 +34,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
