@@ -155,10 +155,7 @@ const config = {
   <section class="hero">
     <div class="hero-container">
       <div class="hero-content">
-        <div class="hero-profile" id="heroProfile">
-          <div class="drop-sign" id="dropSign">
-            <span class="drop-text">Drop Me! 👇</span>
-          </div>
+        <div class="hero-profile">
           <div class="profile-flip-container">
             <div class="profile-flip-inner">
               <div class="profile-front">
@@ -192,39 +189,6 @@ const config = {
 
   <!-- Work Section -->
   <section id="work" class="work">
-    <!-- Wave Background -->
-    <div class="work-waves"></div>
-    
-    <!-- Top Wave -->
-    <div class="work-wave-top">
-      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="waveGradientTop" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:0.8" />
-            <stop offset="50%" style="stop-color:#0891b2;stop-opacity:0.8" />
-            <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.8" />
-          </linearGradient>
-        </defs>
-        <path fill="url(#waveGradientTop)" d="M0,40 C120,60 240,20 360,40 C480,60 600,20 720,40 C840,60 960,20 1080,40 C1200,60 1320,20 1440,40 L1440,80 L0,80 Z" class="wave-back"></path>
-        <path fill="#3b82f6" fill-opacity="0.9" d="M0,50 C150,70 300,30 450,50 C600,70 750,30 900,50 C1050,70 1200,30 1350,50 L1440,50 L1440,80 L0,80 Z" class="wave-front"></path>
-      </svg>
-    </div>
-    
-    <!-- Bottom Wave -->
-    <div class="work-wave-bottom">
-      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="waveGradientBottom" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:0.8" />
-            <stop offset="50%" style="stop-color:#0891b2;stop-opacity:0.8" />
-            <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.8" />
-          </linearGradient>
-        </defs>
-        <path fill="url(#waveGradientBottom)" d="M0,40 C120,60 240,20 360,40 C480,60 600,20 720,40 C840,60 960,20 1080,40 C1200,60 1320,20 1440,40 L1440,80 L0,80 Z" class="wave-back"></path>
-        <path fill="#3b82f6" fill-opacity="0.9" d="M0,50 C150,70 300,30 450,50 C600,70 750,30 900,50 C1050,70 1200,30 1350,50 L1440,50 L1440,80 L0,80 Z" class="wave-front"></path>
-      </svg>
-    </div>
-
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">{config.work.intro}</h2>
@@ -622,65 +586,12 @@ const config = {
     }
 
     .hero-profile {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      opacity: 0;
-      animation: fadeIn 1s ease 0.2s forwards;
-      transition: all 0.5s ease-out;
-    }
-
-    .hero-profile.dropped {
-      animation: profileDrop 3s ease-out forwards;
-    }
-
-    .drop-sign {
       position: absolute;
-      top: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      animation: signBounce 2s ease-in-out infinite;
-      transition: all 0.3s ease;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .drop-sign:hover {
-      transform: translateX(-50%) scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .drop-sign.clicked {
-      animation: signClick 0.3s ease-out;
-    }
-
-    @keyframes signBounce {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(-5px);
-      }
-    }
-
-    @keyframes signClick {
-      0% {
-        transform: translateX(-50%) scale(1);
-      }
-      50% {
-        transform: translateX(-50%) scale(0.9);
-      }
-      100% {
-        transform: translateX(-50%) scale(1);
-      }
+      top: 20%;
+      right: 10%;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.2s forwards, heroFloat 12s ease-in-out infinite 2s;
     }
 
     /* Profile flip container */
@@ -770,46 +681,34 @@ const config = {
       z-index: 10;
     }
 
-    /* Profile drop animation */
-    @keyframes profileDrop {
+    /* Hero section floating around animation */
+    @keyframes heroFloat {
       0% { 
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
+        transform: translate(0, 0) rotate(0deg); 
       }
-      /* Falling phase */
-      20% { 
-        transform: translate(-100px, 200px) rotate(45deg);
-        opacity: 1;
+      12.5% { 
+        transform: translate(-150px, 50px) rotate(15deg); 
       }
-      40% { 
-        transform: translate(-300px, 500px) rotate(180deg);
-        opacity: 1;
+      25% { 
+        transform: translate(-300px, -20px) rotate(-10deg); 
       }
-      /* Enter waves */
+      37.5% { 
+        transform: translate(-250px, 80px) rotate(20deg); 
+      }
       50% { 
-        transform: translate(-400px, 600px) rotate(270deg);
-        opacity: 0.8;
+        transform: translate(-100px, 120px) rotate(-5deg); 
       }
-      /* Bobbing in ocean */
-      60% { 
-        transform: translate(-500px, 580px) rotate(250deg);
-        opacity: 0.9;
+      62.5% { 
+        transform: translate(50px, 100px) rotate(25deg); 
       }
-      70% { 
-        transform: translate(-600px, 590px) rotate(280deg);
-        opacity: 0.8;
+      75% { 
+        transform: translate(100px, 30px) rotate(-15deg); 
       }
-      80% { 
-        transform: translate(-700px, 585px) rotate(260deg);
-        opacity: 0.7;
-      }
-      90% { 
-        transform: translate(-800px, 595px) rotate(290deg);
-        opacity: 0.6;
+      87.5% { 
+        transform: translate(50px, -30px) rotate(10deg); 
       }
       100% { 
-        transform: translate(-900px, 590px) rotate(270deg);
-        opacity: 0.3;
+        transform: translate(0, 0) rotate(0deg); 
       }
     }
 
@@ -1011,87 +910,10 @@ const config = {
       50% { transform: translateY(-20px) rotate(180deg); }
     }
 
-    /* Work Section with Wave Overlays */
+    /* Work Section */
     .work {
-      position: relative;
       padding: 8rem 0;
-      background: var(--bg);
-      overflow: hidden;
-    }
-
-    .work-waves {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
-      z-index: 1;
-    }
-
-    .work-wave-top,
-    .work-wave-bottom {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      z-index: 2;
-    }
-
-    .work-wave-top {
-      top: -1px;
-    }
-
-    .work-wave-bottom {
-      bottom: -1px;
-      transform: rotate(180deg);
-    }
-
-    .work-wave-top svg,
-    .work-wave-bottom svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .wave-back {
-      animation: waveBackMotion 10s ease-in-out infinite;
-    }
-
-    .wave-front {
-      animation: waveFrontMotion 8s ease-in-out infinite;
-    }
-
-    @keyframes waveBackMotion {
-      0%, 100% {
-        transform: translateX(0);
-      }
-      33% {
-        transform: translateX(-20px);
-      }
-      66% {
-        transform: translateX(20px);
-      }
-    }
-
-    @keyframes waveFrontMotion {
-      0%, 100% {
-        transform: translateX(0);
-      }
-      25% {
-        transform: translateX(15px);
-      }
-      50% {
-        transform: translateX(-10px);
-      }
-      75% {
-        transform: translateX(5px);
-      }
-    }
-
-    .work .container {
-      position: relative;
-      z-index: 3;
+      background: linear-gradient(180deg, var(--bg) 0%, #1a202c 100%);
     }
 
     .section-header {
@@ -2081,40 +1903,13 @@ const config = {
       });
     });
 
-    // Header background and floating profile scroll interaction
+    // Header background on scroll
     window.addEventListener('scroll', () => {
       const header = document.querySelector('.header');
-      const profile = document.querySelector('.hero-profile');
-      const workSection = document.querySelector('.work');
-      
-      // Header background
       if (window.scrollY > 100) {
         header.style.background = 'rgba(11, 18, 32, 0.95)';
       } else {
         header.style.background = 'rgba(11, 18, 32, 0.8)';
-      }
-      
-      // Profile scroll interaction
-      if (profile && workSection) {
-        const workRect = workSection.getBoundingClientRect();
-        const scrollY = window.scrollY;
-        const workTop = workRect.top + scrollY;
-        const workHeight = workRect.height;
-        
-        // If work section is in view and profile is in bobbing phase
-        if (workRect.top <= window.innerHeight && workRect.bottom >= 0) {
-          // Keep profile at wave level when work section is visible
-          const profileRect = profile.getBoundingClientRect();
-          const targetY = workTop + 50; // Position near wave top
-          
-          // Smoothly adjust profile position to stay with waves
-          if (Math.abs(profileRect.top + scrollY - targetY) > 50) {
-            profile.style.transform = `translateY(${targetY - profileRect.top - scrollY}px)`;
-          }
-        } else {
-          // Reset transform when work section is out of view
-          profile.style.transform = '';
-        }
       }
     });
 
