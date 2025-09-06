@@ -334,17 +334,34 @@ youtube: {
 						</p>
 					</div>
 					<div class="story-photo">
-						<div class="polaroid">
-							<div class="polaroid-image">
-								<img
-									src="brandon-savannah.jpg"
-									alt="Brandon and Savannah"
-									class="couple-photo"
-								/>
+						<div class="polaroid-stack" tabindex="0" aria-label="Photo stack carousel">
+							<div class="polaroid card" data-caption="Base Jump">
+								<div class="polaroid-image">
+									<img src="/brandon-base-jump.jpg" alt="Brandon base jumping" class="couple-photo" />
+								</div>
+								<div class="polaroid-caption"><span>Base Jump</span></div>
 							</div>
-							<div class="polaroid-caption">
-								<span>Brandon & Savannah ✨</span>
+							<div class="polaroid card" data-caption="Surfing">
+								<div class="polaroid-image">
+									<img src="/brandon-surfing.jpg" alt="Brandon surfing" class="couple-photo" />
+								</div>
+								<div class="polaroid-caption"><span>Surfing</span></div>
 							</div>
+							<div class="polaroid card" data-caption="Switzerland">
+								<div class="polaroid-image">
+									<img src="/brandon-switzerland.jpg" alt="Brandon in Switzerland" class="couple-photo" />
+								</div>
+								<div class="polaroid-caption"><span>Switzerland</span></div>
+							</div>
+							<div class="polaroid card" data-caption="Brandon & Savannah">
+								<div class="polaroid-image">
+									<img src="/brandon-savannah.jpg" alt="Brandon and Savannah" class="couple-photo" />
+								</div>
+								<div class="polaroid-caption"><span>Brandon & Savannah</span></div>
+							</div>
+
+							<button class="stack-btn prev" aria-label="Previous photo">&#10094;</button>
+							<button class="stack-btn next" aria-label="Next photo">&#10095;</button>
 						</div>
 					</div>
 				</div>
@@ -1383,21 +1400,72 @@ youtube: {
 			z-index: 2;
 		}
 
-		/* Single hover-only crayon streak decoration */
-		.story-photo:hover::before {
-			content: "🍕 ☕ ✈️ ⭐ 🧡";
-			position: absolute;
-			font-size: 2.5rem;
-			color: #ff8c42;
-			top: -10%;
-			right: -15%;
-			pointer-events: none;
-			animation: crayonFloat1 4s ease-in-out infinite;
-			animation-delay: 0.3s;
-			text-shadow: 3px 3px 12px rgba(255, 140, 66, 0.6);
-			z-index: 15;
-			opacity: 1;
+		/* Polaroid Stack */
+.polaroid-stack {
+    position: relative;
+    width: 420px; /* explicit width to avoid shrink-to-fit issues */
+    height: 420px; /* ensure space for stacked cards */
+    margin: 0 auto;
+    padding-bottom: 4.5rem; /* extra space for buttons below */
+}
+
+.polaroid-stack .polaroid.card {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: center center;
+    width: 420px; /* match stack width on desktop */
+    max-width: 100%;
+    transform: translateX(-50%);
+    transition: transform 300ms ease, box-shadow 300ms ease, z-index 0ms linear 0ms;
+}
+
+/* Reset base polaroid transform inside stacks so state classes control it */
+.polaroid-stack .polaroid { transform: none; }
+.polaroid-stack .polaroid::before { display: none; }
+
+		/* Layering states */
+		.polaroid-stack .card.is-top {
+			z-index: 3;
+			transform: translateX(-50%) translateY(-6px) rotate(-2deg) scale(1);
 		}
+		.polaroid-stack .card.is-mid {
+			z-index: 2;
+			transform: translateX(-50%) translateY(10px) rotate(6deg) scale(0.97);
+		}
+		.polaroid-stack .card.is-back {
+			z-index: 1;
+			transform: translateX(-50%) translateY(22px) rotate(-8deg) scale(0.94);
+		}
+
+		/* Stack controls */
+.stack-btn {
+    position: absolute;
+    bottom: -1rem; /* sit slightly below the stack */
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--fg);
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease, background 0.2s ease;
+    z-index: 5;
+}
+		.stack-btn:hover { transform: translateY(-1px); }
+		.stack-btn:active { transform: translateY(0); }
+		.stack-btn.prev { left: 0.25rem; }
+		.stack-btn.next { right: 0.25rem; }
+
+		/* Mobile adjustments */
+@media (max-width: 768px) {
+    .polaroid-stack { width: 340px; height: 360px; }
+    .polaroid-stack .polaroid.card { width: 340px; }
+}
+
+/* Removed emoji decoration */
+.story-photo:hover::before { content: none; display: none; }
 
 		/* New crayon streak animations */
 		@keyframes crayonFloat1 {
@@ -1474,20 +1542,22 @@ youtube: {
 			border-radius: 0.2rem;
 		}
 
-		.polaroid-image {
-			position: relative;
-			border-radius: 0.25rem;
-			overflow: hidden;
-			background: #ddd;
-			aspect-ratio: 4/3;
-		}
+.polaroid-image {
+    position: relative;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    background: #ddd;
+    width: 100%;
+    height: 300px; /* explicit height to avoid collapse */
+}
 
-		.couple-photo {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			transition: transform 0.3s ease;
-		}
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
 
 		.polaroid:hover .couple-photo {
 			transform: scale(1.02);
@@ -2222,6 +2292,69 @@ youtube: {
 					}
 				});
 			});
+
+			// Polaroid stack interactivity
+			const stack = document.querySelector(".polaroid-stack");
+            if (stack) {
+                const cards = Array.from(stack.querySelectorAll(".polaroid.card"));
+                const prevBtn = stack.querySelector(".stack-btn.prev");
+                const nextBtn = stack.querySelector(".stack-btn.next");
+                let order = cards.map((_, i) => i); // [0,1,2]
+
+                function applyPositions() {
+                    cards.forEach((card) => {
+                        card.classList.remove("is-top", "is-mid", "is-back");
+                    });
+                    // Top three get explicit layers; all remaining go to back state
+                    if (order[0] !== undefined) cards[order[0]].classList.add("is-top");
+                    if (order[1] !== undefined) cards[order[1]].classList.add("is-mid");
+                    if (order[2] !== undefined) cards[order[2]].classList.add("is-back");
+                    for (let i = 3; i < order.length; i++) {
+                        cards[order[i]].classList.add("is-back");
+                    }
+                }
+
+				function next() {
+					order.push(order.shift());
+					applyPositions();
+				}
+
+				function prev() {
+					order.unshift(order.pop());
+					applyPositions();
+				}
+
+				applyPositions();
+
+				nextBtn?.addEventListener("click", next);
+				prevBtn?.addEventListener("click", prev);
+
+				// Click top card to advance
+				cards.forEach((c) => c.addEventListener("click", () => next()));
+
+				// Keyboard support
+				stack.addEventListener("keydown", (e) => {
+					if (e.key === "ArrowRight") next();
+					if (e.key === "ArrowLeft") prev();
+				});
+
+				// Basic swipe support
+				let startX = 0;
+				let tracking = false;
+				stack.addEventListener("touchstart", (e) => {
+					tracking = true;
+					startX = e.touches[0].clientX;
+				});
+				stack.addEventListener("touchend", (e) => {
+					if (!tracking) return;
+					const endX = e.changedTouches[0].clientX;
+					const dx = endX - startX;
+					if (Math.abs(dx) > 30) {
+						dx < 0 ? next() : prev();
+					}
+					tracking = false;
+				});
+			}
 		});
 	</script>
 </html>
