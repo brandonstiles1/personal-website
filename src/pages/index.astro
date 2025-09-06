@@ -3,15 +3,14 @@
 const config = {
 	site: {
 		name: "Brandon Stiles",
-		nav: ["Work", "Story", "Videos", "Presentations", "Connect"],
+	nav: ["Work", "Story", "Demos", "Presentations", "Connect"],
 		cta: { label: "Let's Connect", href: "#connect" },
 	},
 	hero: {
 		headline: [
-			"Hi, I'm Brandon",
-			"an engineer who makes the complex clear.",
+			"Engineer who turns complexity into clarity",
 		],
-		subline: "Senior SWE → Healthtech & Fintech",
+		subline: "Customer‑facing engineer • Technical Storytelling",
 	},
 	work: {
 		intro: "My latest work",
@@ -27,8 +26,8 @@ const config = {
 					"TypeScript",
 					"SQS",
 				],
-				description:
-					"Designed and shipped a full authentication feature, including magic-links, using AWS Cognito, Lambda, and PostgreSQL—eliminated password friction for 500k+ patients and cut login failures by 20%.",
+			description:
+				"Designed and built a full passwordless authentication system—including magic links and OTP—using AWS Cognito, Lambda, and PostgreSQL, delivering secure, seamless login for 500k+ patients.",
 				company: "Talkiatry",
 				companyLogo: "talkiatry.png",
 				icon: "🔐",
@@ -45,8 +44,8 @@ const config = {
 					"Node.js",
 					"PostgreSQL",
 				],
-				description:
-					"Built a secure messaging system in the patient portal, connecting patients and clinicians directly with the medical EHR. Designed with AWS Lambdas and message queues, and delivered in partnership with product and informatics to turn a complex integration into a simple, reliable user experience.",
+			description:
+				"Enabled HIPAA‑compliant patient–clinician messaging; led discovery with PM/Informatics, demoed workflows, and shipped with Lambdas + queues.",
 				company: "Talkiatry",
 				companyLogo: "talkiatry.png",
 				icon: "💬",
@@ -63,8 +62,8 @@ const config = {
 					"Aggregation Pipeline",
 					"Chart.js",
 				],
-				description:
-					"Built a full-stack drill-down module (MongoDB, Node.js, React) that gave admins actionable audit visibility. Created complex aggregation pipelines and interactive charts for compliance teams.",
+			description:
+				"Gave admins actionable audit visibility via drill‑downs and charts; presented schema tradeoffs to align Eng, Product, and Compliance.",
 				company: "FloQast",
 				companyLogo: "floqast.png",
 				icon: "🔍",
@@ -81,8 +80,8 @@ const config = {
 					"Docker",
 					"Kubernetes",
 				],
-				description:
-					"Led the Partner Enablement onboarding flow used by B2B clients, integrating multiple microservices. Worked directly with Marketing & Sales Ops to integrate analytics with Segment and Datadog, increasing campaign ROI and customer activations.",
+			description:
+				"Improved partner onboarding and analytics with Segment + Datadog; collaborated with Sales/Marketing to surface metrics and reduce time‑to‑value.",
 				company: "Greenlight",
 				companyLogo: "greenlight.png",
 				icon: "📊",
@@ -95,14 +94,14 @@ const config = {
 		title: "About Me",
 		bio: "I'm a software engineer who thrives at the intersection of technology and communication. With 6 years of experience building scalable backend systems at healthtech and fintech startups, I've led engineering initiatives that launched high-impact features used by millions.",
 		bio2: "What sets me apart is my ability to present live demos to stakeholders, translate complex technical concepts for cross-functional teams, and drive alignment that accelerates product adoption. I love roles that blend technical expertise with business impact.",
-		bio3: "Whether it's architecting systems, presenting to leadership, or mentoring engineers - I bring clarity, curiosity, and a few terrible (but proven) jokes to a project.",
+        bio3: "I thrive in customer conversations—discovery, demos, and proofs‑of‑concept that build understanding and trust—while staying hands‑on with engineering.",
 		personalNote:
 			"When I'm not coding or demoing, you'll find me in Atlanta with my partner Savannah, exploring new places, new restaurants, and probably debating the best way to optimize something completely unnecessary.",
 	},
-	youtube: {
-		title: "YouTube Showcase",
-		subtitle:
-			"Technical walkthroughs, product demos, and educational content",
+youtube: {
+    title: "Demos & Walkthroughs",
+    subtitle:
+        "System walkthroughs, integrations, and product demos",
 		videos: [
 			{
 				id: "KLonYvIaWug",
@@ -186,9 +185,9 @@ const config = {
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="Brandon Stiles - Sales & Solutions Partner turning complex architecture into aha-moment demos for Healthtech & Fintech."
+			content="Engineer helping teams turn complex systems into clear demos and customer outcomes across Healthtech & Fintech."
 		/>
-		<title>Brandon Stiles - Sales & Solutions Partner</title>
+		<title>Brandon Stiles — Engineer & Product Demo Specialist</title>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap"
 			rel="stylesheet"
@@ -352,8 +351,8 @@ const config = {
 			</div>
 		</section>
 
-		<!-- YouTube Showcase Section -->
-		<section id="videos" class="youtube-showcase">
+    <!-- Demos & Walkthroughs Section -->
+    <section id="demos" class="youtube-showcase">
 			<div class="container">
 				<div class="section-header">
 					<h2 class="section-title">{config.youtube.title}</h2>
