@@ -128,17 +128,17 @@ const config = {
 		subtitle: "Deep-dive technical presentations and case studies",
 		presentations: [
 			{
-				filename: "redis_presentation.pdf",
+				filename: "/redis_presentation.pdf",
 				title: "Redis: The Key to Delivering Value",
 				description: "Technical deep-dive into scalable backend design",
-				thumbnail: "redis_presentation.png",
+				thumbnail: "/redis_presentation.png",
 			},
 			{
-				filename: "redis_presentation.pdf",
+				filename: "/redis_presentation.pdf",
 				title: "Data Modeling in MongoDB",
 				description:
 					"Best practices for modeling your MongoDB collections",
-				thumbnail: "mongodb_data_modeling.png",
+				thumbnail: "/mongodb_data_modeling.png",
 			},
 		],
 	},
@@ -227,7 +227,7 @@ const config = {
 							<div class="profile-flip-inner">
 								<div class="profile-front">
 									<img
-										src="Brandon.jpg"
+										src="/Brandon.jpg"
 										alt="Brandon Stiles"
 										class="profile-pic"
 									/>
@@ -283,7 +283,7 @@ const config = {
 									>
 										<div class="company-logo">
 											<img
-												src={project.companyLogo}
+												src={`/${project.companyLogo}`}
 												alt={project.company}
 											/>
 										</div>
